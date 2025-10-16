@@ -1,6 +1,6 @@
 # Scripts to setup the testing infrastructure.
-run_target('can-setup', command: ['meson/vcan', 'setup'])
-run_target('can-destroy', command: ['meson/vcan', 'destroy'])
+run_target('can-setup', command: ['tools/vcan', 'setup'])
+run_target('can-destroy', command: ['tools/vcan', 'destroy'])
 
 add_test_setup(
     'valgrind',
