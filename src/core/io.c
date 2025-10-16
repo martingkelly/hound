@@ -168,7 +168,6 @@ void io_push_records(struct hound_record *records, size_t count)
             entry = &xv_A(fdctx->queues, i);
             if (record->data_id == entry->id) {
                 atomic_ref_inc(&rec_info->refcount);
-//                fprintf(stderr, "pushing %p into %lu\n", (void *) rec_info, i);
                 queue_push(entry->queue, rec_info);
                 pushed = true;
             }
