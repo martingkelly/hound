@@ -124,11 +124,13 @@ hound_err obd_init(
 
     ctx->yobd_schema = strdup(yobd_schema);
     if (ctx->yobd_schema == NULL) {
+        err = HOUND_OOM;
         goto error_dup_schema;
     }
 
     ctx->frame_cache = xh_init(FRAME_MAP);
     if (ctx->frame_cache == NULL) {
+        err = HOUND_OOM;
         goto error_xh_init;
     }
 
