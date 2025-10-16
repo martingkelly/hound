@@ -63,7 +63,7 @@ hound_err gps_init(
     host[sep - location] = '\0';
 
     port = malloc(p - sep);
-    if (host == NULL) {
+    if (port == NULL) {
         err = HOUND_OOM;
         goto error_alloc_port;
     }
