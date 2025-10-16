@@ -403,7 +403,7 @@ hound_err modify_drivers(
              * This driver is also in the old driver map, so we can just modify
              * it.
              */
-            old_rq_vec = &xh_val(ctx->drv_data_map, new_iter);
+            old_rq_vec = &xh_val(ctx->drv_data_map, old_iter);
             err = driver_modify(
                 drv,
                 ctx->queue,
@@ -485,8 +485,8 @@ error_new_vec:
         new_rq_vec = &xh_val(new_drv_data_map, new_iter);
 
         old_iter = xh_get(DRIVER_DATA_MAP, ctx->drv_data_map, drv);
-        if (old_iter == xh_end(ctx->drv_data_map)) {
-            old_rq_vec = &xh_val(ctx->drv_data_map, new_iter);
+        if (old_iter != xh_end(ctx->drv_data_map)) {
+            old_rq_vec = &xh_val(ctx->drv_data_map, old_iter);
             tmp = driver_modify(
                 drv,
                 ctx->queue,
