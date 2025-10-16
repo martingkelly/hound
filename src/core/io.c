@@ -179,7 +179,7 @@ void io_push_records(struct hound_record *records, size_t count)
              * only if a driver pushes data from outside the poll loop and its
              * context is being modified at the same time.
              */
-            drv_free(rec_info);
+            record_info_free(rec_info);
         }
     }
 
