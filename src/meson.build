@@ -79,7 +79,7 @@ drivers = {
         'src': ['driver/iio.c']
     },
     'mqtt': {
-        'deps': ['libmosquitto', 'msgpack'],
+        'deps': ['libmosquitto', 'msgpack-c'],
         'src': ['driver/mqtt.c']
     },
     'obd': {

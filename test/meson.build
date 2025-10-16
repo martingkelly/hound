@@ -76,7 +76,7 @@ if get_option('mqtt')
     broker_exe = find_program('mosquitto', required: true)
     tests += {
         'mqtt': {
-            'deps': ['libmosquitto', 'msgpack', 'valgrind'],
+            'deps': ['libmosquitto', 'msgpack-c', 'valgrind'],
             'src': ['mqtt.c'],
             'unit-test': {
                 'args': [example_schema_dir, broker_exe.path(), mosq_conf],
