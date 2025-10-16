@@ -3,3 +3,4 @@ build*/**
 **/cscope.out
 **/cscope.po.out
 **/__pycache__
+**/tags
