@@ -305,9 +305,9 @@ bool parse_payload(
     size_t offset;
     msgpack_unpack_return rc;
     msgpack_unpacked result;
+    bool success;
     unsigned char *tmp;
     size_t type_size;
-    bool success;
 
     msgpack_unpacked_init(&result);
     offset = 0;
