@@ -87,9 +87,6 @@ hound_err obd_init(
     }
 
     if (args == NULL) {
-        return HOUND_NULL_VAL;
-    }
-    if (args == NULL) {
         err = HOUND_NULL_VAL;
         goto error_validate;
     }

@@ -445,9 +445,7 @@ hound_err modify_drivers(
             xv_data(*old_rq_vec),
             xv_size(*old_rq_vec));
         if (err != HOUND_OK) {
-            if (err != HOUND_OK) {
-                goto error_unref;
-            }
+            goto error_unref;
         }
     );
 
