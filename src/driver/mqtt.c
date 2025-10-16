@@ -305,6 +305,7 @@ bool parse_payload(
     size_t offset;
     msgpack_unpack_return rc;
     msgpack_unpacked result;
+    unsigned char *tmp;
     size_t type_size;
     bool success;
 
@@ -343,11 +344,12 @@ bool parse_payload(
             obj->type == MSGPACK_OBJECT_STR) {
             /* Variable-size data; expand our record data to make room. */
             record->size += obj->via.bin.size;
-            record->data = realloc(record->data, record->size);
-            if (record->data == NULL) {
+            tmp = realloc(record->data, record->size);
+            if (tmp == NULL) {
                 success = false;
                 goto error_parse;
             }
+            record->data = tmp;
         }
 
         success = serialize_obj(
