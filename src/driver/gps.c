@@ -232,8 +232,7 @@ hound_err gps_parse(unsigned char *buf, size_t bytes)
         return errno;
     }
 
-    if (ctx->gps.status == STATUS_NO_FIX ||
-        ctx->gps.fix.mode == MODE_NO_FIX) {
+    if (ctx->gps.fix.mode == MODE_NO_FIX) {
         return HOUND_OK;
     }
 
