@@ -37,7 +37,7 @@ void record_info_free(struct record_info *info)
     drv_free(info);
 }
 
-void record_ref_dec(struct record_info *info)
+void record_info_dec(struct record_info *info)
 {
     refcount_val count;
 
@@ -100,7 +100,7 @@ void drain_until(struct queue *queue, size_t new_len)
 
     drain_count = queue->len - new_len;
     for (i = 0; i < drain_count; i++) {
-        record_ref_dec(queue->data[queue->front]);
+        record_info_dec(queue->data[queue->front]);
         queue->front = (queue->front + 1) % queue->max_len;
     }
 
@@ -515,7 +515,7 @@ void queue_push(struct queue *queue, struct record_info *rec)
     unlock_mutex(&queue->mutex);
 
     if (tmp != NULL) {
-        record_ref_dec(tmp);
+        record_info_dec(tmp);
     }
 }
 

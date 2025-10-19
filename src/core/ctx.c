@@ -704,7 +704,7 @@ void process_callbacks(
     for (i = 0; i < n; ++i) {
         rec_info = buf[i];
         cb(&rec_info->record, seqno, cb_ctx);
-        record_ref_dec(rec_info);
+        record_info_dec(rec_info);
         ++seqno;
     }
 }
