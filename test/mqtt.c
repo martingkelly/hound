@@ -347,8 +347,6 @@ pid_t start_broker(const char *broker_exe, const char *config, uint64_t timeout_
             broker_exe,
             broker_exe,
             "-c", config,
-            "-p",
-            MQTT_PORT_STRING,
             NULL);
         XASSERT_NEQ(err, -1);
     }
